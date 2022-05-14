@@ -25,7 +25,98 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
+      <div class="weather-card">
+        <div class="search-container">
+          <div class="row">
+            <div class="col">
+              <form>
+                <input
+                  type="search"
+                  placeholder="Enter City..."
+                  id="search-input"
+                />
+              </form>
+            </div>
+            <div class="col">
+              <button
+                type="submit"
+                class="btn btn-primary shadow button-color"
+                id="search-button"
+              >
+                Search
+              </button>
+
+              <button type="submit" class="btn btn-primary shadow button-color">
+                <i
+                  class="fa-solid fa-location-dot"
+                  id="current-location-button"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="current-day-container">
+          <div class="row">
+            <div class="col">
+              <img class="current-image" src="images/sunny.png" alt="sunny" />
+            </div>
+            <div class="col">
+              <h1>London</h1>
+              <div class="date-time" id="date-time">
+                Saturday 14 May 2020 09:00
+              </div>
+              <div class="current-weather" id="current-desc">Sunny</div>
+              <span class="current-temp" id="current-temp">20</span>
+              <span class="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="farenheit-link">°F</a>
+              </span>
+            </div>
+            <div class="col">
+              <ul class="detailed-weather">
+                <li>
+                  <span>
+                    <i class="fa-solid fa-temperature-half low"></i>
+                    Low: <span id="current-min"></span>18°</span
+                  >
+                </li>
+                <li>
+                  <span
+                    ><i class="fa-solid fa-temperature-full high"></i> High:
+                    <span id="current-max"></span>20°</span
+                  >
+                </li>
+                <li>
+                  <span>
+                    <i class="fa-solid fa-droplet humidity"></i>
+                    Humidity: <span id="current-humidity"></span>15%</span
+                  >
+                </li>
+                <li>
+                  <span>
+                    <i class="fa-solid fa-wind wind"></i> Wind:
+                    <span id="current-wind"> </span>4km/h</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="coded-by">
+          <small>
+            <a
+              href="https://github.com/tashsoks/my-weather-app"
+              target="_blank"
+            >
+              Open-source code</a
+            >
+            by Natasha Sokolsky
+          </small>
+        </div>
+      </div>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
