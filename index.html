@@ -26,94 +26,112 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-card">
-        <div class="search-container">
-          <div class="row">
-            <div class="col">
-              <form>
-                <input
-                  type="search"
-                  placeholder="Enter City..."
-                  id="search-input"
-                />
-              </form>
-            </div>
-            <div class="col">
-              <button
-                type="submit"
-                class="btn btn-primary shadow button-color"
-                id="search-button"
-              >
-                Search
-              </button>
+      <div class="wrapper">
+        <div class="weather-card">
+          <div class="shadow-lg rounded">
+            <header>
+              <img src="images/london.jpg" alt="London" />
+              <section>
+                <div class="search-container">
+                  <div class="row">
+                    <div class="col-5">
+                      <form>
+                        <input
+                          type="search"
+                          placeholder="Enter City..."
+                          class="search-input"
+                          id="search-input"
+                        />
+                      </form>
+                    </div>
+                    <div class="col-3">
+                      <button
+                        type="submit"
+                        class="btn btn-light shadow button-hover"
+                        id="search-button"
+                      >
+                        Search
+                      </button>
 
-              <button type="submit" class="btn btn-primary shadow button-color">
-                <i
-                  class="fa-solid fa-location-dot"
-                  id="current-location-button"
-                ></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="current-day-container">
-          <div class="row">
-            <div class="col">
-              <img class="current-image" src="images/sunny.png" alt="sunny" />
-            </div>
-            <div class="col">
-              <h1>London</h1>
-              <div class="date-time" id="date-time">
-                Saturday 14 May 2020 09:00
+                      <button
+                        type="submit"
+                        class="btn btn-light shadow button-hover"
+                      >
+                        <i
+                          class="fa-solid fa-location-dot"
+                          id="current-location-button"
+                        ></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="overview">
+                  <h1>London</h1>
+                </div>
+              </section>
+            </header>
+            <div class="current-day-container">
+              <div class="row">
+                <div class="col-3">
+                  <img
+                    class="current-image"
+                    src="images/sunny.png"
+                    alt="sunny"
+                  />
+                </div>
+                <div class="col-5">
+                  <div class="date-time" id="date-time">
+                    Saturday 14 May 2020 09:00
+                  </div>
+                  <div class="current-weather" id="current-desc">Sunny</div>
+                  <span class="current-temp" id="current-temp">20</span
+                  ><span class="units">
+                    <a href="#" id="celsius-link">°C</a> |
+                    <a href="#" id="farenheit-link">°F</a>
+                  </span>
+                </div>
+                <div class="col-4">
+                  <ul class="detailed-weather">
+                    <li>
+                      <span>
+                        <i class="fa-solid fa-temperature-half low"></i>
+                        Low: <span id="current-min"></span>18°</span
+                      >
+                    </li>
+                    <li>
+                      <span
+                        ><i class="fa-solid fa-temperature-full high"></i> High:
+                        <span id="current-max"></span>20°</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        <i class="fa-solid fa-droplet humidity"></i>
+                        Humidity: <span id="current-humidity"></span>15%</span
+                      >
+                    </li>
+                    <li>
+                      <span>
+                        <i class="fa-solid fa-wind wind"></i> Wind:
+                        <span id="current-wind"> </span>4km/h</span
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="current-weather" id="current-desc">Sunny</div>
-              <span class="current-temp" id="current-temp">20</span>
-              <span class="units">
-                <a href="#" id="celsius-link">°C</a> |
-                <a href="#" id="farenheit-link">°F</a>
-              </span>
-            </div>
-            <div class="col">
-              <ul class="detailed-weather">
-                <li>
-                  <span>
-                    <i class="fa-solid fa-temperature-half low"></i>
-                    Low: <span id="current-min"></span>18°</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><i class="fa-solid fa-temperature-full high"></i> High:
-                    <span id="current-max"></span>20°</span
-                  >
-                </li>
-                <li>
-                  <span>
-                    <i class="fa-solid fa-droplet humidity"></i>
-                    Humidity: <span id="current-humidity"></span>15%</span
-                  >
-                </li>
-                <li>
-                  <span>
-                    <i class="fa-solid fa-wind wind"></i> Wind:
-                    <span id="current-wind"> </span>4km/h</span
-                  >
-                </li>
-              </ul>
             </div>
           </div>
-        </div>
-        <div class="coded-by">
-          <small>
-            <a
-              href="https://github.com/tashsoks/my-weather-app"
-              target="_blank"
-            >
-              Open-source code</a
-            >
-            by Natasha Sokolsky
-          </small>
+          <div class="coded-by">
+            <small>
+              <a
+                href="https://github.com/tashsoks/my-weather-app"
+                target="_blank"
+              >
+                Open-source code</a
+              >
+              by Natasha Sokolsky
+            </small>
+          </div>
         </div>
       </div>
     </div>
