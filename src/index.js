@@ -106,6 +106,12 @@ function showWeather(response) {
   document
     .querySelector("#current-image")
     .setAttribute("alt", response.data.weather[0].main);
+  document
+    .querySelector("#cover-photo")
+    .setAttribute("src", `images/${response.data.name}.jpg`);
+  document
+    .querySelector("#cover-photo")
+    .setAttribute("alt", response.data.weather[0].main);
 }
 
 //Current date
