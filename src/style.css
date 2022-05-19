@@ -16,11 +16,12 @@ header img {
 
 section {
   font-family: "Roboto", sans-serif;
-  transform: translate(0%, -157%);
+  position: absolute;
+  transform: translate(0%, -160%);
   color: #e7eaf6;
 }
 
-section .col-5 {
+section .col-6 {
   padding-right: 0px;
   width: 215px;
 }
@@ -28,7 +29,7 @@ section .col-5 {
 h1 {
   margin: 0;
   padding-left: 10px;
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 48px;
 }
 

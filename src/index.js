@@ -37,7 +37,7 @@ function formattedDate(timestamp) {
     minuets = `0${minuets}`;
   }
 
-  let fullDateFormatted = `${day} ${actualdate} ${month} ${year} ${hour}:${minuets}`;
+  let fullDateFormatted = `Last updated: ${day} ${actualdate} ${month} ${year} ${hour}:${minuets}`;
 
   return fullDateFormatted;
 }
@@ -106,12 +106,6 @@ function showWeather(response) {
   document
     .querySelector("#current-image")
     .setAttribute("alt", response.data.weather[0].main);
-  document
-    .querySelector("#cover-photo")
-    .setAttribute("src", `images/${response.data.name}.jpg`);
-  document
-    .querySelector("#cover-photo")
-    .setAttribute("alt", response.data.weather[0].main);
 }
 
 //Current date
@@ -132,3 +126,27 @@ selectedCityClick.addEventListener("click", enterCity);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+// Get city photo
+
+function getImgData(response) {
+  let imgUrl = response.data.results[0].urls.regular;
+  // let photographer = response.data.results[0].user.name;
+  // let profileUrl = response.data.results[0].user.links.html;
+
+  let elementBgImg = document.querySelector("#cover-photo");
+  //let elementPhotographer = document.querySelector("#photographer");
+  //let elementProfileUrl = document.querySelector("#profile-url");
+  //let elementCityImg = document.querySelector("#city-photo");
+
+  elementBgImg.setAttribute("src", `${imgUrl});`);
+  // elementCityImg.innerHTML = city;
+  // elementPhotographer.innerHTML = photographer;
+  // elementProfileUrl.setAttribute("href", profileUrl);
+}
+
+function imgQuery() {
+  let query = london;
+  let apiUrl = `https://unsplash.farnsworth.ch/api/f149a8/?query=${query}`;
+  axios.get(apiUrl).then(getImgData);
+}
