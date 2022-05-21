@@ -106,6 +106,25 @@ function showWeather(response) {
   document
     .querySelector("#current-image")
     .setAttribute("alt", response.data.weather[0].main);
+
+  celsiusTemperature = response.data.main.temp;
+}
+
+function convertToFarenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemp);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 //Current date
@@ -113,9 +132,6 @@ function showWeather(response) {
 //changeDate.innerHTML = formattedDate(new Date());
 
 //Search city
-
-search("London");
-
 let selectedCityEnter = document.querySelector("#search-city");
 selectedCityEnter.addEventListener("submit", enterCity);
 
@@ -126,3 +142,15 @@ selectedCityClick.addEventListener("click", enterCity);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+//Unit conversions
+
+let fahrenheitLink = document.querySelector("#farenheit-link");
+fahrenheitLink.addEventListener("click", convertToFarenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
+//default search
+search("London");
+let celsiusTemperature = null;

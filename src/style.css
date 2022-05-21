@@ -112,6 +112,14 @@ li {
   font-size: 16px;
 }
 
+.current-day-container .active {
+  color: #113f67;
+  cursor: default;
+}
+
+.current-day-container .active:hover {
+  text-decoration: none;
+}
 .low {
   color: #5585b5;
 }
