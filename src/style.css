@@ -120,12 +120,30 @@ li {
 .current-day-container .active:hover {
   text-decoration: none;
 }
+
+.high {
+  color: #d63447;
+}
+
 .low {
   color: #5585b5;
 }
 
-.high {
-  color: #d63447;
+.future-forecast {
+  margin: 10px 20px 5px 10px;
+  text-align: center;
+}
+
+.future-day {
+  font-size: 17px;
+}
+
+.future-temp {
+  font-size: 15px;
+}
+
+.future-min {
+  opacity: 0.6;
 }
 
 .coded-by {
