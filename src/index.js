@@ -42,6 +42,14 @@ function formattedDate(timestamp) {
   return fullDateFormatted;
 }
 
+function formatFutureDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
+
 //Search city
 
 function search(city) {
@@ -140,26 +148,37 @@ function convertToCelsius(event) {
 
 //Future forecast
 function showForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let futureDays = ["Thurs", "Fri", "Sat", "Sun"];
-  futureDays.forEach(function (futureDay) {
-    forecastHTML =
-      forecastHTML +
-      `     
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `     
                     <div class="col-2">
-                      <div class="future-day">${futureDay}</div>
+                      <div class="future-day">${formatFutureDay(
+                        forecastDay.dt
+                      )}</div>
                       <img
-                        src="http://openweathermap.org/img/wn/04d@2x.png"
+                        src="http://openweathermap.org/img/wn/${
+                          forecastDay.weather[0].icon
+                        }@2x.png"
                         alt="Sunny"
                         width="60px"
                       />
                       <div class="future-temp">
-                        <span class="future-max"> 18° </span>
-                        <span class="future-min"> 12° </span>
+                        <span class="future-max"> ${Math.round(
+                          forecastDay.temp.max
+                        )}° </span>
+                        <span class="future-min"> ${Math.round(
+                          forecastDay.temp.min
+                        )}° </span>
                       </div>
                     </div>
                 `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
