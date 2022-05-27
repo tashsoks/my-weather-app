@@ -127,6 +127,34 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+//Future forecast
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let futureDays = ["Thurs", "Fri", "Sat", "Sun"];
+  futureDays.forEach(function (futureDay) {
+    forecastHTML =
+      forecastHTML +
+      `     
+                    <div class="col-2">
+                      <div class="future-day">${futureDay}</div>
+                      <img
+                        src="http://openweathermap.org/img/wn/04d@2x.png"
+                        alt="Sunny"
+                        width="60px"
+                      />
+                      <div class="future-temp">
+                        <span class="future-max"> 18° </span>
+                        <span class="future-min"> 12° </span>
+                      </div>
+                    </div>
+                `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Current date
 //let changeDate = document.querySelector("#date-time");
 //changeDate.innerHTML = formattedDate(new Date());
@@ -139,11 +167,11 @@ let selectedCityClick = document.querySelector("#search-button");
 selectedCityClick.addEventListener("click", enterCity);
 
 //Use current location
-
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 //Unit conversions
+let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#farenheit-link");
 fahrenheitLink.addEventListener("click", convertToFarenheit);
@@ -153,4 +181,4 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 //default search
 search("London");
-let celsiusTemperature = null;
+showForecast();
