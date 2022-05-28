@@ -84,6 +84,29 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(showCurrentPosition);
 }
 
+// Get city photo
+
+function getPhotoData(response) {
+  let imgUrl = response.data.results[0].urls.small;
+  let photographer = response.data.results[0].user.name;
+  let profileUrl = response.data.results[0].user.links.html;
+
+  //let elementPhotographer = document.querySelector("#photographer");
+  //let elementProfileUrl = document.querySelector("#photographer-profile");
+
+  document.querySelector("#cover-photo").setAttribute("src", `${imgUrl}`);
+  document.querySelector("#photographer").innerHTML = photographer;
+  document
+    .querySelector("#photographer-profile")
+    .setAttribute("href", profileUrl);
+}
+
+function getCoverPhoto(response) {
+  let city = response.toLowerCase();
+  let apiUrl = `https://unsplash.farnsworth.ch/api/f149a8/?query=${city}`;
+  axios.get(apiUrl).then(getPhotoData);
+}
+
 //Forecast API
 
 function getForecast(coordinates) {
@@ -127,6 +150,8 @@ function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
+
+  getCoverPhoto(response.data.name);
 }
 
 function convertToFarenheit(event) {
@@ -211,3 +236,4 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 //default search
 search("London");
+let city = "London";
