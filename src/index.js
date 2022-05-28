@@ -91,9 +91,6 @@ function getPhotoData(response) {
   let photographer = response.data.results[0].user.name;
   let profileUrl = response.data.results[0].user.links.html;
 
-  //let elementPhotographer = document.querySelector("#photographer");
-  //let elementProfileUrl = document.querySelector("#photographer-profile");
-
   document.querySelector("#cover-photo").setAttribute("src", `${imgUrl}`);
   document.querySelector("#photographer").innerHTML = photographer;
   document
@@ -147,28 +144,9 @@ function showWeather(response) {
     .querySelector("#current-image")
     .setAttribute("alt", response.data.weather[0].main);
 
-  celsiusTemperature = response.data.main.temp;
-
   getForecast(response.data.coord);
 
   getCoverPhoto(response.data.name);
-}
-
-function convertToFarenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temp");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemp);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 //Future forecast
@@ -224,15 +202,6 @@ selectedCityClick.addEventListener("click", enterCity);
 //Use current location
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-//Unit conversions
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#farenheit-link");
-fahrenheitLink.addEventListener("click", convertToFarenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 //default search
 search("London");
