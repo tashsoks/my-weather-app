@@ -7,18 +7,18 @@ header {
 
 header img {
   border-radius: 4px;
-  opacity: 0.9;
   filter: brightness(0.8);
   height: 220px;
   object-fit: cover;
+  opacity: 0.9;
   width: 100%;
 }
 
 section {
+  color: #e7eaf6;
   font-family: "Roboto", sans-serif;
   position: absolute;
   transform: translate(0%, -160%);
-  color: #e7eaf6;
 }
 
 section .col-6 {
@@ -27,15 +27,15 @@ section .col-6 {
 }
 
 h1 {
+  font-size: 48px;
   margin: 0;
   padding-left: 10px;
   padding-top: 10px;
-  font-size: 48px;
 }
 
 a {
-  font-size: 16px;
   text-decoration: none;
+  font-size: 16px;
 }
 
 ul {
@@ -43,42 +43,42 @@ ul {
 }
 
 li {
-  padding-top: 5px;
   list-style: none;
+  padding-top: 5px;
 }
 
 .wrapper {
+  color: #113f67;
   display: block;
   max-width: 650px;
   margin: 20px auto;
   padding: 20px;
-  color: #113f67;
 }
 .shadow-lg.rounded {
-  padding: 1px;
   margin-bottom: 10px;
+  padding: 1px;
 }
 .weather-card {
-  padding: 2px;
   font-family: "Nunito Sans", sans-serif;
+  padding: 2px;
 }
 
 .search-container {
-  padding: 10px;
   line-height: 24px;
+  padding: 10px;
 }
 
 .search-input {
-  padding: 6px;
   background: #e7eaf6;
   border: 0.5px solid #113f67;
+  padding: 6px;
 }
 
 .button-hover {
-  transition: all 200ms ease-in-o;
   background: #e7eaf6;
   border: 0.5px solid #113f67;
   color: #113f67;
+  transition: all 200ms ease-in-o;
 }
 
 .button-hover:hover {
@@ -95,11 +95,13 @@ li {
 }
 
 .date-time {
-  padding-top: 5px;
+  margin-top: 5px;
+  text-align: center;
 }
 
 .current-weather {
   font-size: 30px;
+  margin-top: 20px;
 }
 .current-temp {
   font-size: 55px;
@@ -107,9 +109,9 @@ li {
 }
 
 .units {
+  font-size: 16px;
   position: relative;
   top: -26px;
-  font-size: 16px;
 }
 
 .current-day-container .active {
@@ -123,6 +125,7 @@ li {
 
 .high {
   color: #d63447;
+  margin-top: 20px;
 }
 
 .low {
