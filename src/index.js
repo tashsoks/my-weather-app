@@ -42,6 +42,7 @@ function formattedDate(timestamp) {
   return fullDateFormatted;
 }
 
+//Forecast Days
 function formatFutureDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -188,10 +189,6 @@ function showForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-//Current date
-//let changeDate = document.querySelector("#date-time");
-//changeDate.innerHTML = formattedDate(new Date());
-
 //Search city
 let selectedCityEnter = document.querySelector("#search-city");
 selectedCityEnter.addEventListener("submit", enterCity);
@@ -205,4 +202,3 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 //default search
 search("London");
-let city = "London";
